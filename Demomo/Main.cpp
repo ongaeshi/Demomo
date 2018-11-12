@@ -3,7 +3,7 @@
 
 void Main()
 {
-    Window::Resize(800, 600);
+    Window::Resize(1280, 720);
 	Graphics::SetBackground(ColorF(0.8, 0.9, 1.0));
 
     const Font font(60);
