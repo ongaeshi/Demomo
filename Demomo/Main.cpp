@@ -14,9 +14,9 @@ void Main()
 
 	while (System::Update())
 	{
-		font(U"Hello, Siv3D!🐣").drawAt(Window::Center(), Palette::Black);
+		font(U"Hello, Siv3D!🐣").drawAt(640, 260, Palette::Black);
 
-        Rect rect(200, 500, 500, 80);
+        Rect rect(400, 530, 680, 180);
 
         fontS(U"Hello, Siv3D!🐣\nこんにちは、私がSiv3Dだよ！").draw(rect, Palette::Black);
         rect.draw(ColorF(0.5, 0.2));
@@ -25,8 +25,8 @@ void Main()
 
 		//font(Cursor::Pos()).draw(20, 500, ColorF(0.6));
 
-        actorLeft.resized(80).mirrored().draw(20, 500);
-        actorRight.resized(80).draw(700, 500);
+        actorLeft.resized(120).mirrored().draw(420, 520);
+        actorRight.resized(120).draw(740, 520);
 
 		//Circle(Cursor::Pos(), 60).draw(ColorF(1, 0, 0, 0.5));
 	}
