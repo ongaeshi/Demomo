@@ -1,6 +1,6 @@
 void Main()
 {
-    Window::Resize(1280, 720);
+    Window::Resize(854, 480);
     Graphics::SetBackground(ColorF(0.8, 0.9, 1.0));
 
     const Font font(60);
@@ -11,9 +11,9 @@ void Main()
 
     while (System::Update())
     {
-		font("Hello, Siv3D!🐣").drawAt(640, 260, Palette::Black);
+		font("Hello, Siv3D!🐣").drawAt(427, 200, Palette::Black);
 
-        Rect rect(400, 530, 680, 180);
+        Rect rect(120, 340, 654, 130);
 
         fontS("Hello, Siv3D!🐣\nこんにちは、私がSiv3Dだよ！").draw(rect, Palette::Black);
         
@@ -22,9 +22,9 @@ void Main()
 		//font(Cursor::Pos()).draw(20, 500, ColorF(0.6));
 
         auto s = 120;
-        auto x1 = 400 - s - 20;
-        auto x2 = 1080 + 20;
-        auto y = 720 - s - 20;
+        auto x1 = 0;
+        auto x2 = 700 + 20;
+        auto y = 480 - s - 10;
         actorLeft.resized(s).mirrored().draw(x1, y);
         actorRight.resized(s).draw(x2, y);
 
