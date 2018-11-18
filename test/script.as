@@ -9,7 +9,7 @@ void Main()
     const Font fontS(20);
 
 	const Texture actorLeft(Emoji("🐈"), TextureDesc::Mipped);
-    const Texture actorRight(Emoji("🐒"), TextureDesc::Mipped);
+    const Texture actorRight(Emoji("🐈"), TextureDesc::Mipped);
 
     bool isLeft = true;
 
@@ -21,19 +21,23 @@ void Main()
             Palette::White
             );
 
-        Rect rect(150, 326, 564, 134);
+        Rect rect(0, 326, Window::Width(), 140);
 
         if (rect.leftClicked()) {
             isLeft = !isLeft;
         }
 
         if (isLeft) {
-            Shape2D::RectBalloon(rect, Vec2(100, Window::Height() - 90)).drawFrame(2, Palette::White);
+            Rect rect(160, 326, 564, 134);
+
+            Shape2D::RectBalloon(rect, Vec2(110, Window::Height() - 90)).drawFrame(2, Palette::White);
 
             fontS("Hello, Siv3D!🐣\nこんにちは、私がSiv3Dだよ！\nあああああああああああああああああしあしああしあああああああああああああああいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい").draw(rect, Palette::White);
 
         } else {
-            Shape2D::RectBalloon(rect, Vec2(Window::Width() - 100,  Window::Height() - 90)).drawFrame(2, Palette::White);
+            Rect rect(130, 326, 564, 134);
+
+            Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110,  Window::Height() - 90)).drawFrame(2, Palette::White);
 
             fontS("こんにちは！こんにちは！").draw(rect, Palette::White);
         }
