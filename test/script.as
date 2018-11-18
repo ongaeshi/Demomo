@@ -14,7 +14,6 @@ void Main()
     bool isLeft = true;
     int index = 0;
 
-    // test
     Array<String> texts;
     texts.push_back("えたいの知れない不吉な塊が\n私の心を始終圧おさえつけていた。");
     texts.push_back("焦躁しょうそうと言おうか、嫌悪と言おうか――酒を飲んだあとに宿酔ふつかよいがあるように、酒を毎日飲んでいると宿酔に相当した時期がやって来る。それが来たのだ。");
@@ -27,7 +26,7 @@ void Main()
     texts.push_back("雨や風が蝕むしばんでやがて土に帰ってしまう、と言ったような趣きのある街で、土塀どべいが崩れていたり家並が傾きかかっていたり――");
     texts.push_back("勢いのいいのは植物だけで、時とするとびっくりさせるような向日葵ひまわりがあったりカンナが咲いていたりする。");
     texts.push_back("続きは\n\nhttps://www.aozora.gr.jp/cards/000074/files/424_19826.html");
-    texts.push_back("OpenSiv3Dを使って\n会話デモを簡単に作れるツールを\n開発しています");
+    texts.push_back("");
 
     while (System::Update())
     {
@@ -49,14 +48,14 @@ void Main()
 
             Shape2D::RectBalloon(rect, Vec2(110, Window::Height() - 90)).drawFrame(2, Palette::White);
 
-            fontS(texts[index]).draw(rect.stretched(-6), Palette::White);
+            fontS(texts[index]).draw(rect, Palette::White);
 
         } else {
             Rect rect(130, 326, 564, 134);
 
             Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110,  Window::Height() - 90)).drawFrame(2, Palette::White);
 
-            fontS(texts[index]).draw(rect.stretched(-6), Palette::White);
+            fontS(texts[index]).draw(rect, Palette::White);
         }
 
         auto s = 120;
