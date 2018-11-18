@@ -14,7 +14,6 @@ void Main()
     bool isLeft = true;
     int index = 0;
 
-    // test
     Array<String> texts;
     texts.push_back("えたいの知れない不吉な塊が\n私の心を始終圧おさえつけていた。");
     texts.push_back("焦躁しょうそうと言おうか、嫌悪と言おうか――酒を飲んだあとに宿酔ふつかよいがあるように、酒を毎日飲んでいると宿酔に相当した時期がやって来る。それが来たのだ。");
