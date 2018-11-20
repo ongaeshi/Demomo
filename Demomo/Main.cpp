@@ -21,14 +21,15 @@ void Main()
 	int index = 0;
 
 	Array<TOMLValue> texts;
-	for (const auto& value : reader[U"text"].tableArrayView())
+	TOMLValue scene = reader[U"Scene"].tableArrayView()[0];
+	for (const auto& value : scene[U"Text"].tableArrayView())
 	{
-		texts.push_back(value);
+			texts.push_back(value);
 	}
 
 	while (System::Update())
 	{
-		font(reader[U"Scene.title"].getString()).drawAt(
+		font(scene[U"title"].getString()).drawAt(
 			Window::Width() / 2,
 			(Window::Height() - 140) / 2,
 			Palette::White
@@ -38,6 +39,9 @@ void Main()
 
 		if (rect.leftClicked()) {
 			index++;
+		}
+		else if (rect.rightClicked()) {
+			index--;
 		}
 
 		auto actorName = texts[index][U"actor"].getString();

@@ -4,42 +4,42 @@ ken = { emoji = "🙂", pos = "left" }
 ken_o = { emoji = "😮", pos = "left" }
 sum = { emoji = "🐈", pos = "right" }
 
-[Scene]
+[[Scene]]
 title = "OpenSiv3Dって何？"
 
-[[text]]
+[[Scene.Text]]
 actor = "ken"
 text = "こんにちは！今日はよろしくね。"
 
-[[text]]
+[[Scene.Text]]
 actor = "sum"
 text = "こちらもよろしく。"
 
-[[text]]
+[[Scene.Text]]
 actor = "ken"
 text = "ところでOpenSiv3Dなんだけど、"
 
-[[text]]
+[[Scene.Text]]
 actor = "sum"
 text = "はい"
 
-[[text]]
+[[Scene.Text]]
 actor = "ken_o"
 text = "何が便利なの？"
 
-[[text]]
+[[Scene.Text]]
 actor = "ken"
 text = "イマイチ分からなくて。"
 
-[[text]]
+[[Scene.Text]]
 actor = "sum"
 text = "はいはい"
 
-[[text]]
+[[Scene.Text]]
 actor = "ken"
 text = "教えてもらえるかな？"
 
-[[text]]
+[[Scene.Text]]
 actor = "sum"
 text = """
 了解です。 
@@ -47,7 +47,7 @@ text = """
 それじゃこれ見て
 """
 
-[[text]]
+[[Scene.Text]]
 actor = "ken"
 text = """
 
