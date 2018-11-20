@@ -1,8 +1,8 @@
 [Actor]
 # 登場人物を配置
-ken = { emoji = "😊", pos = "left" }
+ken = { emoji = "🙂", pos = "left" }
 ken_o = { emoji = "😮", pos = "left" }
-sum = { emoji = "😺", pos = "right" }
+sum = { emoji = "🐈", pos = "right" }
 
 [[Scene]]
 # 行頭に@で登場人物の変更、空行はそのまま入力される。
