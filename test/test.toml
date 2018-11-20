@@ -1,0 +1,23 @@
+#
+#	TOML example
+#
+
+[Window]
+fullscreen = false
+backgroundColor = "(0.2, 0.3, 0.7)"
+
+[GUI.Config.Button]
+label = "Hello" # comment
+
+[Scores]
+values = [ 500, 200, 100 ]
+
+[[Monster]]
+	index = 25
+	name = "ピカチュウ"
+	types = ["でんき"]
+
+[[Monster]]
+	index = 6
+	name = "リザードン"
+	types = ["ほのお", "ひこう"]

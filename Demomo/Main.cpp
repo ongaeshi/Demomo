@@ -1,8 +1,13 @@
-﻿
-# include <Siv3D.hpp> // OpenSiv3D v0.3.0
+﻿#include <Siv3D.hpp> // OpenSiv3D v0.3.0
 
 void Main()
 {
+	const TOMLReader reader(U"../../test/test.toml");
+
+	Print << reader[U"Window.fullscreen"].get<bool>();
+	Print << reader[U"Window.backgroundColor"].get<ColorF>();
+	Print << reader[U"GUI.Config.Button.label"].getString();
+
 	Window::Resize(854, 480);
 	//Graphics::SetBackground(ColorF(0.8, 0.9, 1.0));
 	//Graphics::SetBackground(Color(255, 255, 255));
