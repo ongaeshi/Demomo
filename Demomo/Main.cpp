@@ -18,18 +18,17 @@ void Main()
 	const Texture actorLeft(Emoji(reader[U"Actor.ken.emoji"].getString()), TextureDesc::Mipped);
 	const Texture actorRight(Emoji(reader[U"Actor.sum.emoji"].getString()), TextureDesc::Mipped);
 
-	bool isLeft = true;
 	int index = 0;
 
-	Array<String> texts;
-	for (const auto& value : reader[U"Texts.text"].arrayView())
+	Array<TOMLValue> texts;
+	for (const auto& value : reader[U"text"].tableArrayView())
 	{
-		texts.push_back(value.getString());
+		texts.push_back(value);
 	}
 
 	while (System::Update())
 	{
-		font(reader[U"Texts.title"].getString()).drawAt(
+		font(reader[U"Scene.title"].getString()).drawAt(
 			Window::Width() / 2,
 			(Window::Height() - 140) / 2,
 			Palette::White
@@ -38,16 +37,18 @@ void Main()
 		Rect rect(0, 326, Window::Width(), 140);
 
 		if (rect.leftClicked()) {
-			isLeft = !isLeft;
 			index++;
 		}
+
+		auto actorName = texts[index][U"actor"].getString();
+		bool isLeft = reader[U"Actor." + actorName + U".pos"].getString() == U"left";
 
 		if (isLeft) {
 			Rect rect(160, 326, 564, 134);
 
 			Shape2D::RectBalloon(rect, Vec2(110, Window::Height() - 90)).drawFrame(2, Palette::White);
 
-			fontS(texts[index]).draw(rect.stretched(-6), Palette::White);
+			fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
 
 		}
 		else {
@@ -55,7 +56,7 @@ void Main()
 
 			Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110, Window::Height() - 90)).drawFrame(2, Palette::White);
 
-			fontS(texts[index]).draw(rect.stretched(-6), Palette::White);
+			fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
 		}
 
 		auto s = 120;

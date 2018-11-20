@@ -4,89 +4,52 @@ ken = { emoji = "🙂", pos = "left" }
 ken_o = { emoji = "😮", pos = "left" }
 sum = { emoji = "🐈", pos = "right" }
 
-[Texts]
+[Scene]
 title = "OpenSiv3Dって何？"
 
-text = [
-"こんにちは！今日はよろしくね。",
-"こちらもよろしく。",    
-"ところでOpenSiv3Dなんだけど、",
-"はい",
-"""何が便利なの？
+[[text]]
+actor = "ken"
+text = "こんにちは！今日はよろしくね。"
 
-イマイチ分からなくて。
-""",
-"教えてもらえるかな？",
-"了解です。\n\nそれじゃこれ見て。"
-]
+[[text]]
+actor = "sum"
+text = "こちらもよろしく。"
 
-[[Scene]]
-# 行頭に@で登場人物の変更、空行はそのまま入力される。
+[[text]]
+actor = "ken"
+text = "ところでOpenSiv3Dなんだけど、"
+
+[[text]]
+actor = "sum"
+text = "はい"
+
+[[text]]
+actor = "ken_o"
+text = "何が便利なの？"
+
+[[text]]
+actor = "ken"
+text = "イマイチ分からなくて。"
+
+[[text]]
+actor = "sum"
+text = "はいはい"
+
+[[text]]
+actor = "ken"
+text = "教えてもらえるかな？"
+
+[[text]]
+actor = "sum"
 text = """
-@ken
-こんにちは！今日はよろしくね。
+了解です。 
 
-@sum
-こちらもよろしく。
-
-@ken
-ところでOpenSiv3Dなんだけど、
-
-@sum 
-はい
-
-@ken_o
-何が便利なの？
-
-イマイチ分からなくて。
-
-@sum
-はいはい
-
-@ken
-教えてもらえるかな？
-
-@sum
-了解です。
-
-それじゃこれ見て。
+それじゃこれ見て
 """
 
-[[Scene]]
-# AngelScriptで描画コマンドを埋め込める
-script = """
-Circle(Window::Center(), 5.0).draw(Palette::White);
-"""
-
-# プログラムを実行しながら会話劇を進められるようにしたい
+[[text]]
+actor = "ken"
 text = """
-@ken
-円が書かれているね。
 
-@sum
-はい。
-
-@ken
-こういうのをとても簡単に書けるのが特徴なんだ。
-
-@ken
-ちなみにこの円を書くプログラムは
-"""
-
-[[Scene]]
-script = """
-Circle(Window::Center(), 5.0).draw(Palette::White);
-
-font("Circle(Window::Center(), 5.0).draw(Palette::White);").draw_at(Window::Center());
-"""
-
-text = """
-@sum
-これだけで書ける。
-
-@ken_o
-うひょー。
-
-@ken
-これはすごい。
+                                  お    わ    り
 """
