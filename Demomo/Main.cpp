@@ -2,11 +2,10 @@
 
 void Main()
 {
-	const TOMLReader reader(U"../../test/test.toml");
+	const TOMLReader reader(U"../../test/script.toml");
 
-	Print << reader[U"Window.fullscreen"].get<bool>();
-	Print << reader[U"Window.backgroundColor"].get<ColorF>();
-	Print << reader[U"GUI.Config.Button.label"].getString();
+	Print << reader[U"Actor.ken.emoji"].getString();
+	Print << reader[U"Actor.sum.emoji"].getString();
 
 	Window::Resize(854, 480);
 	//Graphics::SetBackground(ColorF(0.8, 0.9, 1.0));

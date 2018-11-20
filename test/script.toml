@@ -1,0 +1,76 @@
+[Actor]
+# 登場人物を配置
+ken = { emoji = "😊", pos = "left" }
+ken_o = { emoji = "😮", pos = "left" }
+sum = { emoji = "😺", pos = "right" }
+
+[[Scene]]
+# 行頭に@で登場人物の変更、空行はそのまま入力される。
+text = """
+@ken
+こんにちは！今日はよろしくね。
+
+@sum
+こちらもよろしく。
+
+@ken
+ところでOpenSiv3Dなんだけど、
+
+@sum 
+はい
+
+@ken_o
+何が便利なの？
+
+イマイチ分からなくて。
+
+@sum
+はいはい
+
+@ken
+教えてもらえるかな？
+
+@sum
+了解です。
+
+それじゃこれ見て。
+"""
+
+[[Scene]]
+# AngelScriptで描画コマンドを埋め込める
+script = """
+Circle(Window::Center(), 5.0).draw(Palette::White);
+"""
+
+# プログラムを実行しながら会話劇を進められるようにしたい
+text = """
+@ken
+円が書かれているね。
+
+@sum
+はい。
+
+@ken
+こういうのをとても簡単に書けるのが特徴なんだ。
+
+@ken
+ちなみにこの円を書くプログラムは
+"""
+
+[[Scene]]
+script = """
+Circle(Window::Center(), 5.0).draw(Palette::White);
+
+font("Circle(Window::Center(), 5.0).draw(Palette::White);").draw_at(Window::Center());
+"""
+
+text = """
+@sum
+これだけで書ける。
+
+@ken_o
+うひょー。
+
+@ken
+これはすごい。
+"""
