@@ -4,9 +4,6 @@ void Main()
 {
 	const TOMLReader reader(U"../../test/script.toml");
 
-	//Print << reader[U"Actor.ken.emoji"].getString();
-	//Print << reader[U"Actor.sum.emoji"].getString();
-
 	Window::Resize(854, 480);
 	//Graphics::SetBackground(ColorF(0.8, 0.9, 1.0));
 	//Graphics::SetBackground(Color(255, 255, 255));
@@ -14,6 +11,11 @@ void Main()
 
 	const Font font(60);
 	const Font fontS(20);
+
+	HashTable<String, Texture> actors;
+	actors.emplace(U"ken", Texture(Emoji(reader[U"Actor.ken.emoji"].getString()), TextureDesc::Mipped));
+	actors.emplace(U"ken_o", Texture(Emoji(reader[U"Actor.ken_o.emoji"].getString()), TextureDesc::Mipped));
+	actors.emplace(U"sum", Texture(Emoji(reader[U"Actor.sum.emoji"].getString()), TextureDesc::Mipped));
 
 	const Texture actorLeft(Emoji(reader[U"Actor.ken.emoji"].getString()), TextureDesc::Mipped);
 	const Texture actorRight(Emoji(reader[U"Actor.sum.emoji"].getString()), TextureDesc::Mipped);
@@ -24,7 +26,7 @@ void Main()
 	TOMLValue scene = reader[U"Scene"].tableArrayView()[0];
 	for (const auto& value : scene[U"Text"].tableArrayView())
 	{
-			texts.push_back(value);
+		texts.push_back(value);
 	}
 
 	while (System::Update())
@@ -35,12 +37,12 @@ void Main()
 			Palette::White
 		);
 
-		Rect rect(0, 326, Window::Width(), 140);
+		Rect clickedRect(0, 326, Window::Width(), 140);
 
-		if (rect.leftClicked()) {
+		if (clickedRect.leftClicked()) {
 			index++;
 		}
-		else if (rect.rightClicked()) {
+		else if (clickedRect.rightClicked()) {
 			index--;
 		}
 
@@ -64,10 +66,7 @@ void Main()
 		}
 
 		auto s = 120;
-		auto x1 = 0;
-		auto x2 = 700 + 20;
-		auto y = 480 - s - 10;
-		actorLeft.resized(s).mirrored().drawAt(70, Window::Height() - 70);
-		actorRight.resized(s).drawAt(Window::Width() - 70, Window::Height() - 70);
+		actors[U"ken"].resized(s).mirrored().drawAt(70, Window::Height() - 70);
+		actors[U"sum"].resized(s).drawAt(Window::Width() - 70, Window::Height() - 70);
 	}
 }
