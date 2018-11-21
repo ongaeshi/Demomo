@@ -17,9 +17,6 @@ void Main()
 	actors.emplace(U"ken_o", Texture(Emoji(reader[U"Actor.ken_o.emoji"].getString()), TextureDesc::Mipped));
 	actors.emplace(U"sum", Texture(Emoji(reader[U"Actor.sum.emoji"].getString()), TextureDesc::Mipped));
 
-	const Texture actorLeft(Emoji(reader[U"Actor.ken.emoji"].getString()), TextureDesc::Mipped);
-	const Texture actorRight(Emoji(reader[U"Actor.sum.emoji"].getString()), TextureDesc::Mipped);
-
 	int index = 0;
 
 	Array<TOMLValue> texts;
