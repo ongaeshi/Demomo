@@ -32,14 +32,13 @@ void Main()
 			Window::Width() / 2,
 			(Window::Height() - 140) / 2,
 			Palette::White
-		);
+			);
 
 		Rect clickedRect(0, 326, Window::Width(), 140);
 
 		if (clickedRect.leftClicked()) {
 			index++;
-		}
-		else if (clickedRect.rightClicked()) {
+		} else if (clickedRect.rightClicked()) {
 			index--;
 		}
 
@@ -53,8 +52,7 @@ void Main()
 
 			fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
 
-		}
-		else {
+		} else {
 			Rect rect(130, 326, 564, 134);
 
 			Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110, Window::Height() - 90)).drawFrame(2, Palette::White);
