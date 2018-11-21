@@ -17,6 +17,9 @@ void Main()
 	actors.emplace(U"ken_o", Texture(Emoji(reader[U"Actor.ken_o.emoji"].getString()), TextureDesc::Mipped));
 	actors.emplace(U"sum", Texture(Emoji(reader[U"Actor.sum.emoji"].getString()), TextureDesc::Mipped));
 
+	Texture& actorLeft = actors[U"ken"];
+	Texture& actorRight = actors[U"sum"];
+
 	int index = 0;
 
 	Array<TOMLValue> texts;
@@ -47,21 +50,21 @@ void Main()
 
 		if (isLeft) {
 			Rect rect(160, 326, 564, 134);
-
 			Shape2D::RectBalloon(rect, Vec2(110, Window::Height() - 90)).drawFrame(2, Palette::White);
-
 			fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
+
+			actorLeft = actors[actorName];
 
 		} else {
 			Rect rect(130, 326, 564, 134);
-
 			Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110, Window::Height() - 90)).drawFrame(2, Palette::White);
-
 			fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
+
+			actorRight = actors[actorName];
 		}
 
 		auto s = 120;
-		actors[U"ken"].resized(s).mirrored().drawAt(70, Window::Height() - 70);
-		actors[U"sum"].resized(s).drawAt(Window::Width() - 70, Window::Height() - 70);
+		actorLeft.resized(s).drawAt(70, Window::Height() - 70);
+		actorRight.resized(s).drawAt(Window::Width() - 70, Window::Height() - 70);
 	}
 }
