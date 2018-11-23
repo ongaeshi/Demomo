@@ -12,13 +12,18 @@ void Main()
 	const Font font(60);
 	const Font fontS(20);
 
-	HashTable<String, Texture> actors;
-	actors.emplace(U"ken", Texture(Emoji(reader[U"Actor.ken.emoji"].getString()), TextureDesc::Mipped));
-	actors.emplace(U"ken_o", Texture(Emoji(reader[U"Actor.ken_o.emoji"].getString()), TextureDesc::Mipped));
-	actors.emplace(U"sum", Texture(Emoji(reader[U"Actor.sum.emoji"].getString()), TextureDesc::Mipped));
+	Array<Texture> actorArray;
+	actorArray << Texture(Emoji(reader[U"Actor.ken.emoji"].getString()), TextureDesc::Mipped);
+	actorArray << Texture(Emoji(reader[U"Actor.ken_o.emoji"].getString()), TextureDesc::Mipped);
+	actorArray << Texture(Emoji(reader[U"Actor.sum.emoji"].getString()), TextureDesc::Mipped);
 
-	Texture& actorLeft = actors[U"ken"];
-	Texture& actorRight = actors[U"sum"];
+	HashTable<String, int> actors;
+	actors.emplace(U"ken", 0);
+	actors.emplace(U"ken_o", 1);
+	actors.emplace(U"sum", 2);
+
+	int actorLeft = actors[U"ken"];
+	int actorRight = actors[U"sum"];
 
 	int index = 0;
 
@@ -63,8 +68,7 @@ void Main()
 			actorRight = actors[actorName];
 		}
 
-		auto s = 120;
-		actorLeft.resized(s).drawAt(70, Window::Height() - 70);
-		actorRight.resized(s).drawAt(Window::Width() - 70, Window::Height() - 70);
+		actorArray[actorLeft].resized(120).drawAt(70, Window::Height() - 70);
+		actorArray[actorRight].resized(120).drawAt(Window::Width() - 70, Window::Height() - 70);
 	}
 }
