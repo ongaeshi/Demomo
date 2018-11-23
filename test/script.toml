@@ -4,21 +4,6 @@ emoji = "🙂"
 pos = "left"
 
 [[Actor]]
-name = "ken_o"
-emoji = "😮"
-pos = "left"
-
-[[Actor]]
-name = "ken_c"
-emoji = "😱"
-pos = "left"
-
-[[Actor]]
-name = "ken_ase"
-emoji = "😓"
-pos = "left"
-
-[[Actor]]
 name = "sum"
 emoji = "🐈"
 pos = "right"
@@ -43,6 +28,21 @@ text = "ところでOpenSiv3Dなんだけど、"
 [[Scene.Text]]
 actor = "sum"
 text = "はい"
+
+[[Actor]]
+name = "ken_o"
+emoji = "😮"
+pos = "left"
+
+[[Actor]]
+name = "ken_c"
+emoji = "😱"
+pos = "left"
+
+[[Actor]]
+name = "ken_ase"
+emoji = "😓"
+pos = "left"
 
 [[Scene.Text]]
 actor = "ken_o"
