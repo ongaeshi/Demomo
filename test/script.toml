@@ -6,6 +6,7 @@ sum = { emoji = "🐈", pos = "right" }
 
 [[Scene]]
 title = "OpenSiv3Dって何？"
+initial_actors = ["ken", "sum"]
 
 [[Scene.Text]]
 actor = "ken"

@@ -5,6 +5,7 @@ void Main()
 	const TOMLReader reader(U"../../test/script.toml");
 
 	Window::Resize(854, 480);
+
 	//Graphics::SetBackground(ColorF(0.8, 0.9, 1.0));
 	//Graphics::SetBackground(Color(255, 255, 255));
 	Graphics::SetBackground(Color(0, 0, 0));
