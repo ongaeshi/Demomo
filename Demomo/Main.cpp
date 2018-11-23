@@ -23,13 +23,14 @@ void Main()
 		i++;
 	}
 
-	int actorLeft = actors[U"ken"];
-	int actorRight = actors[U"sum"];
-
 	int index = 0;
 
 	Array<TOMLValue> texts;
 	TOMLValue scene = reader[U"Scene"].tableArrayView()[0];
+
+	int actorLeft = actors[scene[U"init_left"].getString()];
+	int actorRight = actors[scene[U"init_right"].getString()];
+
 	for (const auto& value : scene[U"Text"].tableArrayView())
 	{
 		texts.push_back(value);

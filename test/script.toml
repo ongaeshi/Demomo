@@ -25,6 +25,8 @@ pos = "right"
 
 [[Scene]]
 title = "OpenSiv3Dって何？"
+init_left = "ken"
+init_right = "sum"
 
 [[Scene.Text]]
 actor = "ken"
