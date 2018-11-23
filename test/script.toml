@@ -1,12 +1,20 @@
-[Actor]
-# 登場人物を配置
-ken = { emoji = "🙂", pos = "left" }
-ken_o = { emoji = "😮", pos = "left" }
-sum = { emoji = "🐈", pos = "right" }
+[[Actor]]
+name = "ken"
+emoji = "🙂"
+pos = "left"
+
+[[Actor]]
+name = "ken_o"
+emoji = "😮"
+pos = "left"
+
+[[Actor]]
+name = "sum"
+emoji = "🐈"
+pos = "right"
 
 [[Scene]]
 title = "OpenSiv3Dって何？"
-initial_actors = ["ken", "sum"]
 
 [[Scene.Text]]
 actor = "ken"

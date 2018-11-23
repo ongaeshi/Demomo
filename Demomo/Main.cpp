@@ -14,14 +14,14 @@ void Main()
 	const Font fontS(20);
 
 	Array<Texture> actorArray;
-	actorArray << Texture(Emoji(reader[U"Actor.ken.emoji"].getString()), TextureDesc::Mipped);
-	actorArray << Texture(Emoji(reader[U"Actor.ken_o.emoji"].getString()), TextureDesc::Mipped);
-	actorArray << Texture(Emoji(reader[U"Actor.sum.emoji"].getString()), TextureDesc::Mipped);
-
 	HashTable<String, int> actors;
-	actors.emplace(U"ken", 0);
-	actors.emplace(U"ken_o", 1);
-	actors.emplace(U"sum", 2);
+	int i = 0;
+
+	for (const auto& actor : reader[U"Actor"].tableArrayView()) {
+		actorArray << Texture(Emoji(actor[U"emoji"].getString()), TextureDesc::Mipped);
+		actors.emplace(actor[U"name"].getString(), i);
+		i++;
+	}
 
 	int actorLeft = actors[U"ken"];
 	int actorRight = actors[U"sum"];
@@ -52,7 +52,14 @@ void Main()
 		}
 
 		auto actorName = texts[index][U"actor"].getString();
-		bool isLeft = reader[U"Actor." + actorName + U".pos"].getString() == U"left";
+
+		bool isLeft = false;
+		for (const auto& actor : reader[U"Actor"].tableArrayView()) {
+			if (actorName == actor[U"name"].getString()) {
+				isLeft = actor[U"pos"].getString() == U"left";
+				break;
+			}
+		}
 
 		if (isLeft) {
 			Rect rect(160, 326, 564, 134);
