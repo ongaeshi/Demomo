@@ -23,7 +23,7 @@ void Main()
 		i++;
 	}
 
-	int index = 0;
+	int index = -1;
 
 	Array<TOMLValue> texts;
 	TOMLValue scene = reader[U"Scene"].tableArrayView()[0];
@@ -52,29 +52,31 @@ void Main()
 			index--;
 		}
 
-		auto actorName = texts[index][U"actor"].getString();
+		if (index >= 0) {
+			auto actorName = texts[index][U"actor"].getString();
 
-		bool isLeft = false;
-		for (const auto& actor : reader[U"Actor"].tableArrayView()) {
-			if (actorName == actor[U"name"].getString()) {
-				isLeft = actor[U"pos"].getString() == U"left";
-				break;
+			bool isLeft = false;
+			for (const auto& actor : reader[U"Actor"].tableArrayView()) {
+				if (actorName == actor[U"name"].getString()) {
+					isLeft = actor[U"pos"].getString() == U"left";
+					break;
+				}
 			}
-		}
 
-		if (isLeft) {
-			Rect rect(160, 326, 564, 134);
-			Shape2D::RectBalloon(rect, Vec2(110, Window::Height() - 90)).drawFrame(2, Palette::White);
-			fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
+			if (isLeft) {
+				Rect rect(160, 326, 564, 134);
+				Shape2D::RectBalloon(rect, Vec2(110, Window::Height() - 90)).drawFrame(2, Palette::White);
+				fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
 
-			actorLeft = actors[actorName];
+				actorLeft = actors[actorName];
 
-		} else {
-			Rect rect(130, 326, 564, 134);
-			Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110, Window::Height() - 90)).drawFrame(2, Palette::White);
-			fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
+			} else {
+				Rect rect(130, 326, 564, 134);
+				Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110, Window::Height() - 90)).drawFrame(2, Palette::White);
+				fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
 
-			actorRight = actors[actorName];
+				actorRight = actors[actorName];
+			}
 		}
 
 		actorArray[actorLeft].resized(120).drawAt(70, Window::Height() - 70);
