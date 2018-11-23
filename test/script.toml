@@ -9,6 +9,16 @@ emoji = "😮"
 pos = "left"
 
 [[Actor]]
+name = "ken_c"
+emoji = "😱"
+pos = "left"
+
+[[Actor]]
+name = "ken_ase"
+emoji = "😓"
+pos = "left"
+
+[[Actor]]
 name = "sum"
 emoji = "🐈"
 pos = "right"
@@ -37,7 +47,7 @@ actor = "ken_o"
 text = "何が便利なの？"
 
 [[Scene.Text]]
-actor = "ken"
+actor = "ken_c"
 text = "イマイチ分からなくて。"
 
 [[Scene.Text]]
@@ -45,7 +55,7 @@ actor = "sum"
 text = "はいはい"
 
 [[Scene.Text]]
-actor = "ken"
+actor = "ken_ase"
 text = "教えてもらえるかな？"
 
 [[Scene.Text]]
