@@ -5,10 +5,7 @@ void Main()
 	const TOMLReader reader(U"../../test/script.toml");
 
 	Window::Resize(854, 480);
-
-	//Graphics::SetBackground(ColorF(0.8, 0.9, 1.0));
-	//Graphics::SetBackground(Color(255, 255, 255));
-	Graphics::SetBackground(Color(0, 0, 0));
+	Graphics::SetBackground(ColorF(0, 0, 0));
 
 	const Font font(60);
 	const Font fontS(20);
@@ -27,6 +24,10 @@ void Main()
 
 	Array<TOMLValue> texts;
 	TOMLValue scene = reader[U"Scene"].tableArrayView()[0];
+
+	if (scene.hasMember(U"backgroundColor")) {
+		Graphics::SetBackground(scene[U"backgroundColor"].get<ColorF>());
+	}
 
 	int actorLeft = actors[scene[U"init_left"].getString()];
 	int actorRight = actors[scene[U"init_right"].getString()];
