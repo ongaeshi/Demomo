@@ -10,8 +10,7 @@ Script::Script(const FilePath& aPath)
 {
     for (const auto& actor : mReader[U"Actor"].tableArrayView()) {
         mActors << Actor(Emoji(actor[U"emoji"].getString()));
-        //actors.emplace(actor[U"name"].getString(), i);
-        //i++;
+        mActorHash.emplace(actor[U"name"].getString(), mActors.count() - 1);
     }
 }
 

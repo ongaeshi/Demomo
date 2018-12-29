@@ -12,14 +12,6 @@ void Main()
     Window::Resize(854, 480);
 	Graphics::SetBackground(ColorF(0, 0, 0));
 
-	HashTable<String, int> actors;
-	int i = 0;
-
-	for (const auto& actor : reader[U"Actor"].tableArrayView()) {
-		actors.emplace(actor[U"name"].getString(), i);
-		i++;
-	}
-
 	int index = -1;
 
 	Array<TOMLValue> texts;
@@ -29,8 +21,8 @@ void Main()
 		Graphics::SetBackground(scene[U"backgroundColor"].get<ColorF>());
 	}
 
-	int actorLeft = actors[scene[U"init_left"].getString()];
-	int actorRight = actors[scene[U"init_right"].getString()];
+	int actorLeft = player.script().actorIndex(scene[U"init_left"].getString());
+	int actorRight = player.script().actorIndex(scene[U"init_right"].getString());
 
 	for (const auto& value : scene[U"Text"].tableArrayView())
 	{
@@ -69,14 +61,14 @@ void Main()
 				Shape2D::RectBalloon(rect, Vec2(110, Window::Height() - 90)).drawFrame(2, Palette::White);
 				fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
 
-				actorLeft = actors[actorName];
+				actorLeft = player.script().actorIndex(actorName);
 
 			} else {
 				Rect rect(130, 326, 564, 134);
 				Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110, Window::Height() - 90)).drawFrame(2, Palette::White);
 				fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
 
-				actorRight = actors[actorName];
+				actorRight = player.script().actorIndex(actorName);
 			}
 		}
 
