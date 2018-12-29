@@ -17,8 +17,8 @@ public:
     const Font& fontS() const { return mFontS; }
 
     Actor& actor(int aIndex) { return mActors[aIndex]; }
-    Actor& actor(const String& aStr) { return mActors[actorIndex(aStr)]; }
-    int actorIndex(const String& aStr) { return mActorHash[aStr]; }
+    Actor& actor(const String& aName) { return mActors[actorIndex(aName)]; }
+    int actorIndex(const String& aName) { return mActorHash[aName]; }
 
 private:
     TOMLReader mReader;
