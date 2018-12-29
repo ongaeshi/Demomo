@@ -46,29 +46,21 @@ void Main()
 		}
 
 		if (index >= 0) {
-			auto actorName = texts[index][U"actor"].getString();
+            auto& actor = player.script().actor(texts[index][U"actor"].getString());
 
-			bool isLeft = false;
-			for (const auto& actor : reader[U"Actor"].tableArrayView()) {
-				if (actorName == actor[U"name"].getString()) {
-					isLeft = actor[U"pos"].getString() == U"left";
-					break;
-				}
-			}
-
-			if (isLeft) {
+			if (actor.isLeft()) {
 				Rect rect(160, 326, 564, 134);
 				Shape2D::RectBalloon(rect, Vec2(110, Window::Height() - 90)).drawFrame(2, Palette::White);
 				fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
 
-				actorLeft = player.script().actor(actorName);
+				actorLeft = actor;
 
 			} else {
 				Rect rect(130, 326, 564, 134);
 				Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110, Window::Height() - 90)).drawFrame(2, Palette::White);
 				fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
 
-				actorRight = player.script().actor(actorName);
+				actorRight = actor;
 			}
 		}
 
