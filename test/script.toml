@@ -75,3 +75,42 @@ text = """
 
                                   お    わ    り
 """
+
+[[Scene]]
+title = "OpenSiv3Dで何ができるの？"
+
+[[Scene.Text]]
+actor = "sum"
+text = "OpenSiv3Dはゲームとメディアアートのための C++ ライブラリだよ！\n"
+
+[[Scene.Text]]
+actor = "sum"
+text = "グラフィックの表示、音の再生、マウスやキーボードと連携したプログラムをとても簡単に書くことができるんだ。例えば・・"
+
+[[Scene.Text]]
+actor = "sum"
+text = "図形を書く"
+
+[[Scene.Text]]
+actor = "sum"
+text = "複雑な図形を描く"
+
+[[Scene.Text]]
+actor = "sum"
+text = "絵文字を書く"
+
+[[Scene.Text]]
+actor = "sum"
+text = "テクスチャを書く"
+
+[[Scene.Text]]
+actor = "sum"
+text = "文字を書く"
+
+[[Scene.Text]]
+actor = "sum"
+text = "詳しくは https://scrapbox.io/Siv3D/ を見るといいよ！"
+
+[[Scene.Text]]
+actor = "ken"
+text = "すごい！"
