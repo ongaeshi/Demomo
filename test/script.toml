@@ -11,6 +11,7 @@ pos = "right"
 [[Scene]]
 title = "OpenSiv3Dって何？"
 # backgroundColor = "(0.2, 0.3, 0.7)"
+backgroundColor = "#9D7889"
 initLeft = "ken"
 initRight = "sum"
 
