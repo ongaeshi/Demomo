@@ -21,8 +21,8 @@ void Main()
 		Graphics::SetBackground(scene[U"backgroundColor"].get<ColorF>());
 	}
 
-	int actorLeft = player.script().actorIndex(scene[U"init_left"].getString());
-	int actorRight = player.script().actorIndex(scene[U"init_right"].getString());
+	auto& actorLeft = player.script().actor(scene[U"init_left"].getString());
+	auto& actorRight = player.script().actor(scene[U"init_right"].getString());
 
 	for (const auto& value : scene[U"Text"].tableArrayView())
 	{
@@ -61,18 +61,18 @@ void Main()
 				Shape2D::RectBalloon(rect, Vec2(110, Window::Height() - 90)).drawFrame(2, Palette::White);
 				fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
 
-				actorLeft = player.script().actorIndex(actorName);
+				actorLeft = player.script().actor(actorName);
 
 			} else {
 				Rect rect(130, 326, 564, 134);
 				Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110, Window::Height() - 90)).drawFrame(2, Palette::White);
 				fontS(texts[index][U"text"].getString()).draw(rect.stretched(-6), Palette::White);
 
-				actorRight = player.script().actorIndex(actorName);
+				actorRight = player.script().actor(actorName);
 			}
 		}
 
-        player.script().actor(actorLeft).texture().resized(120).drawAt(70, Window::Height() - 70);
-        player.script().actor(actorRight).texture().resized(120).drawAt(Window::Width() - 70, Window::Height() - 70);
+        actorLeft.texture().resized(120).drawAt(70, Window::Height() - 70);
+        actorRight.texture().resized(120).drawAt(Window::Width() - 70, Window::Height() - 70);
 	}
 }
