@@ -20,7 +20,7 @@ public:
 private:
     bool hasMember(const String& aStr) const { return mDesc.hasMember(aStr); }
 
-    const TOMLValue& mDesc;
+    const TOMLValue mDesc;
 
 };
 
