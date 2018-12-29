@@ -1,7 +1,10 @@
-﻿#include <Siv3D.hpp> // OpenSiv3D v0.3.0
+﻿#include <Siv3D.hpp>
+#include "Player.hpp"
 
 void Main()
 {
+    demomo::Player player(U"../../test/script.toml");
+    
 	const TOMLReader reader(U"../../test/script.toml");
 
 	Window::Resize(854, 480);
