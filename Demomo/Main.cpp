@@ -21,8 +21,8 @@ void Main()
 		Graphics::SetBackground(scene[U"backgroundColor"].get<ColorF>());
 	}
 
-	auto& actorLeft = player.script().actor(scene[U"init_left"].getString());
-	auto& actorRight = player.script().actor(scene[U"init_right"].getString());
+	auto& actorLeft = player.script().actor(scene[U"initLeft"].getString());
+	auto& actorRight = player.script().actor(scene[U"initRight"].getString());
 
 	for (const auto& value : scene[U"Text"].tableArrayView())
 	{
