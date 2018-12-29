@@ -12,12 +12,10 @@ void Main()
     Window::Resize(854, 480);
 	Graphics::SetBackground(ColorF(0, 0, 0));
 
-	Array<Texture> actorArray;
 	HashTable<String, int> actors;
 	int i = 0;
 
 	for (const auto& actor : reader[U"Actor"].tableArrayView()) {
-		actorArray << Texture(Emoji(actor[U"emoji"].getString()), TextureDesc::Mipped);
 		actors.emplace(actor[U"name"].getString(), i);
 		i++;
 	}
@@ -82,7 +80,7 @@ void Main()
 			}
 		}
 
-		actorArray[actorLeft].resized(120).drawAt(70, Window::Height() - 70);
-		actorArray[actorRight].resized(120).drawAt(Window::Width() - 70, Window::Height() - 70);
+        player.script().actor(actorLeft).texture().resized(120).drawAt(70, Window::Height() - 70);
+        player.script().actor(actorRight).texture().resized(120).drawAt(Window::Width() - 70, Window::Height() - 70);
 	}
 }
