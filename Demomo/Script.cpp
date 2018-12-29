@@ -12,6 +12,10 @@ Script::Script(const FilePath& aPath)
         mActors << Actor(actor);
         mActorHash.emplace(actor[U"name"].getString(), mActors.count() - 1);
     }
+
+    for (const auto& scene : mReader[U"Scene"].tableArrayView()) {
+        mScenes << Scene(scene);
+    }
 }
 
 }

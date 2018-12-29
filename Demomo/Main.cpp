@@ -10,28 +10,25 @@ void Main()
     const Font& fontS = player.script().fontS();
 
     Window::Resize(854, 480);
-	Graphics::SetBackground(ColorF(0, 0, 0));
 
 	int index = -1;
 
 	Array<TOMLValue> texts;
-	TOMLValue scene = reader[U"Scene"].tableArrayView()[0];
+    auto& scene = player.script().scene(0);
 
-	if (scene.hasMember(U"backgroundColor")) {
-		Graphics::SetBackground(scene[U"backgroundColor"].get<ColorF>());
-	}
+    Graphics::SetBackground(scene.backgroundColor());
 
-	auto& actorLeft = player.script().actor(scene[U"initLeft"].getString());
-	auto& actorRight = player.script().actor(scene[U"initRight"].getString());
+	auto& actorLeft = player.script().actor(scene.initLeft());
+	auto& actorRight = player.script().actor(scene.initRight());
 
-	for (const auto& value : scene[U"Text"].tableArrayView())
+	for (const auto& value : reader[U"Scene"].tableArrayView()[0][U"Text"].tableArrayView())
 	{
 		texts.push_back(value);
 	}
 
 	while (System::Update())
 	{
-		font(scene[U"title"].getString()).drawAt(
+		font(scene.title()).drawAt(
 			Window::Width() / 2,
 			(Window::Height() - 140) / 2,
 			Palette::White

@@ -2,6 +2,7 @@
 
 #include <Siv3D.hpp>
 #include "Actor.hpp"
+#include "Scene.hpp"
 
 namespace demomo {
 
@@ -19,6 +20,8 @@ public:
     Actor& actor(int aIndex) { return mActors[aIndex]; }
     Actor& actor(const String& aName) { return mActors[actorIndex(aName)]; }
     int actorIndex(const String& aName) { return mActorHash[aName]; }
+    
+    Scene& scene(int aIndex) { return mScenes[aIndex]; }
 
 private:
     TOMLReader mReader;
@@ -26,6 +29,7 @@ private:
     const Font mFontS;
     Array<Actor> mActors;
     HashTable<String, int> mActorHash;
+    Array<Scene> mScenes;
 };
 
 }
