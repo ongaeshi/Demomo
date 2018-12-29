@@ -4,8 +4,7 @@
 void Main()
 {
     demomo::Player player(U"../../test/script.toml");
-    
-	const TOMLReader reader(U"../../test/script.toml");
+    const TOMLReader& reader = player.reader();
 
 	Window::Resize(854, 480);
 	Graphics::SetBackground(ColorF(0, 0, 0));

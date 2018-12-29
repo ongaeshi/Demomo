@@ -3,6 +3,7 @@
 namespace demomo {
 //-----------------------------------------------------------------------------
 Player::Player(const FilePath& aPath)
+: mScript(aPath)
 {
 }
 
