@@ -9,7 +9,7 @@ Script::Script(const FilePath& aPath)
 , mFontS(20)
 {
     for (const auto& actor : mReader[U"Actor"].tableArrayView()) {
-        mActors << Actor(Emoji(actor[U"emoji"].getString()));
+        mActors << Actor(actor);
         mActorHash.emplace(actor[U"name"].getString(), mActors.count() - 1);
     }
 }

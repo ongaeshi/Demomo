@@ -2,8 +2,9 @@
 
 namespace demomo {
 //-----------------------------------------------------------------------------
-Actor::Actor(const Emoji& aEmoji)
-: mTexture(aEmoji, TextureDesc::Mipped)
+Actor::Actor(const TOMLValue& aDesc)
+: mTexture(Emoji(aDesc[U"emoji"].getString()), TextureDesc::Mipped)
+, mIsLeft(aDesc[U"pos"].getString() == U"left")
 {
 }
 
