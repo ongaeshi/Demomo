@@ -4,13 +4,13 @@
 void Main()
 {
     demomo::Player player(U"../../test/script.toml");
-    const TOMLReader& reader = player.reader();
 
-	Window::Resize(854, 480);
+    const TOMLReader& reader = player.script().reader();
+    const Font& font = player.script().font();
+    const Font& fontS = player.script().fontS();
+
+    Window::Resize(854, 480);
 	Graphics::SetBackground(ColorF(0, 0, 0));
-
-	const Font font(60);
-	const Font fontS(20);
 
 	Array<Texture> actorArray;
 	HashTable<String, int> actors;

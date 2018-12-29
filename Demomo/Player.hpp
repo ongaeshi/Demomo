@@ -10,7 +10,9 @@ class Player
 {
 public:
     Player(const FilePath& aPath);
-    TOMLReader& reader() { return mScript.reader(); }
+
+    Script& script() { return mScript; }
+
     void tryReload();
     void update();
 
