@@ -10,7 +10,7 @@ class Actor
 public:
     Actor(const TOMLValue& aDesc);
 
-    Texture& texture() { return mTexture; }
+    const Texture& texture() const { return mTexture; }
     bool isLeft() const { return mIsLeft; }
 
 private:

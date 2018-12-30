@@ -17,9 +17,9 @@ public:
     const Font& font() const { return mFont; }
     const Font& fontS() const { return mFontS; }
 
-    Actor& actor(int aIndex) { return mActors[aIndex]; }
-    Actor& actor(const String& aName) { return mActors[actorIndex(aName)]; }
-    int actorIndex(const String& aName) { return mActorHash[aName]; }
+    const Actor& actor(int aIndex) const { return mActors[aIndex]; }
+    const Actor& actor(const String& aName) const { return mActors[actorIndex(aName)]; }
+    int actorIndex(const String& aName) const { return const_cast<HashTable<String, int>&>(mActorHash)[aName]; }
     
     Scene& scene(int aIndex) { return mScenes[aIndex]; }
 
