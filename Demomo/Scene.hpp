@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Siv3D.hpp>
+#include "Text.hpp"
 
 namespace demomo {
 
@@ -17,11 +18,13 @@ public:
 
     ColorF backgroundColor() const;
 
+    const Array<Text>& texts() const { return mTexts; }
+
 private:
     bool hasMember(const String& aStr) const { return mDesc.hasMember(aStr); }
 
     const TOMLValue mDesc;
-
+    Array<Text> mTexts;
 };
 
 }

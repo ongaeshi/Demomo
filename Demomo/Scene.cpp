@@ -5,6 +5,9 @@ namespace demomo {
 Scene::Scene(const TOMLValue& aDesc)
 : mDesc(aDesc)
 {
+    for (const auto& text : aDesc[U"Text"].tableArrayView()) {
+        mTexts << Text(text);
+    }
 }
 
 //-----------------------------------------------------------------------------

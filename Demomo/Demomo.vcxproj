@@ -202,6 +202,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Script.cpp" />
+    <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\engine\texture\box-shadow\128.png" />
@@ -271,6 +272,7 @@
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="Script.hpp" />
+    <ClInclude Include="Text.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
