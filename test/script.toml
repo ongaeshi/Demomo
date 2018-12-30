@@ -72,6 +72,7 @@ text = """
 
 [[Scene]]
 title = "OpenSiv3Dで何ができるの？"
+initLeft = "ken"
 
 [[Scene.Text]]
 actor = "sum"
@@ -112,16 +113,26 @@ text = "すごい！"
 [[Scene]]
 title = "https://scrapbox.io/Siv3D/"
 
+[[Actor]]
+name = "ken_laugh"
+emoji = "😄"
+pos = "left"
+
+[[Actor]]
+name = "sum_laugh"
+emoji = "😺"
+pos = "right"
+
 [[Scene.Text]]
-actor = "ken"
+actor = "ken_laugh"
 text = "おかげでOpenSiv3Dのことがとってもよくわかったよ！"
 
 [[Scene.Text]]
-actor = "sum"
+actor = "sum_laugh"
 text = "どういたしまして！"
 
 [[Scene.Text]]
-actor = "ken"
+actor = "ken_laugh"
 text = """
 
                                   お    わ    り
