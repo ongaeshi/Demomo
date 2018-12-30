@@ -14,7 +14,7 @@ Script::Script(const FilePath& aPath)
     }
 
     for (const auto& scene : mReader[U"Scene"].tableArrayView()) {
-        mScenes << Scene(scene);
+        mScenes << Scene(*this, scene);
     }
 }
 

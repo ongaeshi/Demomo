@@ -4,12 +4,16 @@
 #include "Text.hpp"
 
 namespace demomo {
+    class Script;
+}
+
+namespace demomo {
 
 //-----------------------------------------------------------------------------
 class Scene
 {
 public:
-    Scene(const TOMLValue& aDesc);
+    Scene(const Script& aScript, const TOMLValue& aDesc);
 
     String title() const { return mDesc[U"title"].getString(); }
 

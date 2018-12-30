@@ -2,11 +2,11 @@
 
 namespace demomo {
 //-----------------------------------------------------------------------------
-Scene::Scene(const TOMLValue& aDesc)
+Scene::Scene(const Script& aScript, const TOMLValue& aDesc)
 : mDesc(aDesc)
 {
     for (const auto& text : aDesc[U"Text"].tableArrayView()) {
-        mTexts << Text(text);
+        mTexts << Text(aScript, text);
     }
 }
 
