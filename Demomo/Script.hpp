@@ -19,6 +19,7 @@ public:
     const Actor& actor(const String& aName) const { return mActors[actorIndex(aName)]; }
     int actorIndex(const String& aName) const { return const_cast<HashTable<String, int>&>(mActorHash)[aName]; }
     
+    const Array<Scene>& scenes() const { return mScenes; }
     Scene& scene(int aIndex) { return mScenes[aIndex]; }
 
 private:

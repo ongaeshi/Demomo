@@ -32,6 +32,11 @@ void Player::update()
     if (clickedRect.leftClicked()) {
         if (mTextIndex < static_cast<int>(scene().texts().count()) - 1) {
             mTextIndex++;
+        } else {
+            if (mSceneIndex < static_cast<int>(script().scenes().count()) - 1) {
+                mSceneIndex++;
+                mTextIndex = 0;
+            }
         }
     } else if (clickedRect.rightClicked()) {
         if (mTextIndex > 0) { // Can't go back to -1
