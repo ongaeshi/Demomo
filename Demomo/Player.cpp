@@ -30,9 +30,13 @@ void Player::update()
     Rect clickedRect(0, 326, Window::Width(), 140);
 
     if (clickedRect.leftClicked()) {
-        mTextIndex++;
+        if (mTextIndex < static_cast<int>(scene().texts().count()) - 1) {
+            mTextIndex++;
+        }
     } else if (clickedRect.rightClicked()) {
-        mTextIndex--;
+        if (mTextIndex > 0) { // Can't go back to -1
+            mTextIndex--;
+        }
     }
 
     if (mTextIndex >= 0) {
