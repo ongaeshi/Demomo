@@ -70,13 +70,6 @@ text = """
 それじゃこれ見て
 """
 
-[[Scene.Text]]
-actor = "ken"
-text = """
-
-                                  お    わ    り
-"""
-
 [[Scene]]
 title = "OpenSiv3Dで何ができるの？"
 
@@ -115,3 +108,22 @@ text = "詳しくは https://scrapbox.io/Siv3D/ を見るといいよ！"
 [[Scene.Text]]
 actor = "ken"
 text = "すごい！"
+
+[[Scene]]
+title = "https://scrapbox.io/Siv3D/"
+
+[[Scene.Text]]
+actor = "ken"
+text = "おかげでOpenSiv3Dのことがとってもよくわかったよ！"
+
+[[Scene.Text]]
+actor = "sum"
+text = "どういたしまして！"
+
+[[Scene.Text]]
+actor = "ken"
+text = """
+
+                                  お    わ    り
+"""
+
