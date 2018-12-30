@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Siv3D.hpp>
+#include "Actor.hpp"
 #include "Script.hpp"
 
 namespace demomo {
@@ -17,7 +18,13 @@ public:
     void update();
 
 private:
+    Scene& scene() { return mScript.scene(mSceneIndex); }
+
     Script mScript;
+    int mSceneIndex;
+    int mTextIndex;
+    const Actor* mActorLeft;
+    const Actor* mActorRight;
 };
 
 }
