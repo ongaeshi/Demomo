@@ -17,7 +17,10 @@ public:
 
     String title() const { return mDesc[U"title"].getString(); }
 
+    bool hasInitLeft() const { return hasMember(U"initLeft"); }
     String initLeft() const { return mDesc[U"initLeft"].getString(); }
+
+    bool hasInitRight() const { return hasMember(U"initRight"); }
     String initRight() const { return mDesc[U"initRight"].getString(); }
 
     ColorF backgroundColor() const;

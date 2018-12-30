@@ -36,6 +36,14 @@ void Player::update()
             if (mSceneIndex < static_cast<int>(script().scenes().count()) - 1) {
                 mSceneIndex++;
                 mTextIndex = 0;
+
+                if (scene().hasInitLeft()) {
+                    mActorLeft = &script().actor(scene().initLeft());
+                }
+
+                if (scene().hasInitRight()) {
+                    mActorRight = &script().actor(scene().initRight());
+                }
             }
         }
     } else if (clickedRect.rightClicked()) {
