@@ -17,6 +17,8 @@ public:
     void tryReload();
     void update();
 
+    void speech(const Text& aText);
+
 private:
     Scene& scene() { return mScript.scene(mSceneIndex); }
 

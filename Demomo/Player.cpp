@@ -12,7 +12,7 @@ Player::Player(const FilePath& aPath)
 , mIsWaitSpeechEnd(-1)
 {
     Window::Resize(854, 480);
-    Graphics::SetBackground(scene().backgroundColor());
+    Graphics::SetBackground(script().setting().backgroundColor());
     TextToSpeech::SetSpeed(script().setting().speechSpeed());
 }
 
@@ -90,13 +90,7 @@ void Player::update()
 
             mActorLeft = &text.actor();
 
-            if (mIsSpeech) {
-                TextToSpeech::Speak(text.text());
-                mIsSpeech = false;
-                if (script().setting().autoPlay()) {
-                    mIsWaitSpeechEnd = 5;
-                }
-            }
+            speech(text);
 
         } else {
             Rect rect(130, 326, 564, 134);
@@ -105,18 +99,24 @@ void Player::update()
 
             mActorRight = &text.actor();
 
-            if (mIsSpeech) {
-                TextToSpeech::Speak(text.text());
-                mIsSpeech = false;
-                if (script().setting().autoPlay()) {
-                    mIsWaitSpeechEnd = 5;
-                }
-            }
+            speech(text);
         }
     }
 
     mActorLeft->texture().resized(120).drawAt(70, Window::Height() - 70);
     mActorRight->texture().resized(120).drawAt(Window::Width() - 70, Window::Height() - 70);
+}
+
+//-----------------------------------------------------------------------------
+void Player::speech(const Text& aText)
+{
+    if (mIsSpeech) {
+        TextToSpeech::Speak(aText.text());
+        mIsSpeech = false;
+        if (script().setting().autoPlay()) {
+            mIsWaitSpeechEnd = 5;
+        }
+    }
 }
 
 }
