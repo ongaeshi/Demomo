@@ -8,6 +8,7 @@ Player::Player(const FilePath& aPath)
 , mTextIndex(-1)
 , mActorLeft(&script().actor(scene().initLeft()))
 , mActorRight(&script().actor(scene().initRight()))
+, mIsSpeech(false)
 {
     Window::Resize(854, 480);
     Graphics::SetBackground(scene().backgroundColor());
@@ -39,6 +40,8 @@ void Player::update()
     Rect clickedRect(0, 326, Window::Width(), 140);
 
     if (clickedRect.leftClicked()) {
+        mIsSpeech = true;
+
         if (mTextIndex < static_cast<int>(scene().texts().count()) - 1) {
             mTextIndex++;
         } else {
@@ -71,12 +74,22 @@ void Player::update()
 
             mActorLeft = &text.actor();
 
+            if (mIsSpeech) {
+                TextToSpeech::Speak(text.text());
+                mIsSpeech = false;
+            }
+
         } else {
             Rect rect(130, 326, 564, 134);
             Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110, Window::Height() - 90)).drawFrame(2, Palette::White);
             script().fontS()(text.text()).draw(rect.stretched(-6), Palette::White);
 
             mActorRight = &text.actor();
+
+            if (mIsSpeech) {
+                TextToSpeech::Speak(text.text());
+                mIsSpeech = false;
+            }
         }
     }
 

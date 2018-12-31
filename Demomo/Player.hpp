@@ -25,6 +25,7 @@ private:
     int mTextIndex;
     const Actor* mActorLeft;
     const Actor* mActorRight;
+    bool mIsSpeech;
 };
 
 }
