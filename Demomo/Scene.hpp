@@ -25,12 +25,15 @@ public:
 
     ColorF backgroundColor() const;
 
+    const Texture& texture() const { return mTexture; }
+
     const Array<Text>& texts() const { return mTexts; }
 
 private:
     bool hasMember(const String& aStr) const { return mDesc.hasMember(aStr); }
 
     const TOMLValue mDesc;
+    Texture mTexture;
     Array<Text> mTexts;
 };
 

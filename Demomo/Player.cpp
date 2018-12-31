@@ -21,11 +21,16 @@ void Player::tryReload()
 //-----------------------------------------------------------------------------
 void Player::update()
 {
+    scene().texture().drawAt(
+        Window::Width() / 2,
+        (Window::Height() - 140) / 2
+        );
+
     script().font()(scene().title()).drawAt(
         Window::Width() / 2,
         (Window::Height() - 140) / 2,
         Palette::White
-    );
+        );
 
     Rect clickedRect(0, 326, Window::Width(), 140);
 
