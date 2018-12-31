@@ -5,7 +5,7 @@ namespace demomo {
 //-----------------------------------------------------------------------------
 Script::Script(const FilePath& aPath)
 : mReader(aPath)
-, mTextToSpeech(mReader[U"Setting"][U"textToSpeech"].get<bool>())
+, mSetting(mReader[U"Setting"])
 , mFont(60)
 , mFontS(20)
 {

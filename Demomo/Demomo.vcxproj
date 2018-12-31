@@ -202,6 +202,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Script.cpp" />
+    <ClCompile Include="Setting.cpp" />
     <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -272,6 +273,7 @@
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="Script.hpp" />
+    <ClInclude Include="Setting.hpp" />
     <ClInclude Include="Text.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

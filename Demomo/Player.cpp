@@ -51,7 +51,7 @@ void Player::update()
         if (mTextIndex < static_cast<int>(scene().texts().count()) - 1) {
             mTextIndex++;
 
-            if (script().textToSpeech()) {
+            if (script().setting().textToSpeech()) {
                 mIsSpeech = true;
             }
 
@@ -60,7 +60,7 @@ void Player::update()
                 mSceneIndex++;
                 mTextIndex = 0;
 
-                if (script().textToSpeech()) {
+                if (script().setting().textToSpeech()) {
                     mIsSpeech = true;
                 }
 

@@ -3,6 +3,7 @@
 #include <Siv3D.hpp>
 #include "Actor.hpp"
 #include "Scene.hpp"
+#include "Setting.hpp"
 
 namespace demomo {
 
@@ -12,7 +13,7 @@ class Script
 public:
     Script(const FilePath& aPath);
 
-    bool textToSpeech() const { return mTextToSpeech; }
+    const Setting& setting() const { return mSetting; }
 
     const Font& font() const { return mFont; }
     const Font& fontS() const { return mFontS; }
@@ -26,7 +27,7 @@ public:
 
 private:
     TOMLReader mReader;
-    bool mTextToSpeech;
+    Setting mSetting;
     const Font mFont;
     const Font mFontS;
     Array<Actor> mActors;
