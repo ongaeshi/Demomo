@@ -32,7 +32,7 @@ public:
     const Array<Text>& texts() const { return mTexts; }
 
 private:
-    bool hasMember(const String& aStr) const { return mDesc.hasMember(aStr); }
+    bool hasMember(const String& aName) const { return mDesc.hasMember(aName); }
 
     const TOMLValue mDesc;
     Texture mTexture;

@@ -1,6 +1,7 @@
 [Setting]
 textToSpeech = true
 autoPlay = true
+speechSpeed = 1.0
 
 [[Actor]]
 name = "ken"

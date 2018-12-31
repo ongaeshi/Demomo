@@ -13,6 +13,7 @@ Player::Player(const FilePath& aPath)
 {
     Window::Resize(854, 480);
     Graphics::SetBackground(scene().backgroundColor());
+    TextToSpeech::SetSpeed(script().setting().speechSpeed());
 }
 
 //-----------------------------------------------------------------------------

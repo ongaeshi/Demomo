@@ -7,5 +7,15 @@ Setting::Setting(const TOMLValue& aDesc)
 {
 }
 
+//-----------------------------------------------------------------------------
+double Setting::speechSpeed() const
+{
+    if (hasMember(U"speechSpeed")) {
+        return mDesc[U"speechSpeed"].get<double>();
+    } else {
+        return 1.0;
+    }
+}
+
 }
 
