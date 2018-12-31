@@ -14,15 +14,5 @@ Scene::Scene(const Script& aScript, const TOMLValue& aDesc)
     }
 }
 
-//-----------------------------------------------------------------------------
-ColorF Scene::backgroundColor() const
-{
-    if (hasMember(U"backgroundColor")) {
-        return mDesc[U"backgroundColor"].get<ColorF>();
-    } else {
-        return ColorF();
-    }
-}
-
 }
 

@@ -27,8 +27,6 @@ public:
     bool hasInitRight() const { return hasMember(U"initRight"); }
     String initRight() const { return mDesc[U"initRight"].getString(); }
 
-    ColorF backgroundColor() const;
-
     const Array<Text>& texts() const { return mTexts; }
 
 private:

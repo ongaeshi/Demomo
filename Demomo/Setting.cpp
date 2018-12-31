@@ -8,6 +8,16 @@ Setting::Setting(const TOMLValue& aDesc)
 }
 
 //-----------------------------------------------------------------------------
+Color Setting::backgroundColor() const
+{
+    if (hasMember(U"backgroundColor")) {
+        return mDesc[U"backgroundColor"].get<Color>();
+    } else {
+        return Color();
+    }
+}
+
+//-----------------------------------------------------------------------------
 double Setting::speechSpeed() const
 {
     if (hasMember(U"speechSpeed")) {

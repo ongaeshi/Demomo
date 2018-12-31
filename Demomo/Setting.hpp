@@ -10,6 +10,8 @@ class Setting
 public:
     Setting(const TOMLValue& aDesc);
 
+    Color backgroundColor() const;
+
     bool textToSpeech() const { return mDesc[U"textToSpeech"].get<bool>(); }
     bool autoPlay() const { return mDesc[U"autoPlay"].get<bool>(); }
     double speechSpeed() const;
