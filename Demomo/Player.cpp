@@ -40,7 +40,9 @@ void Player::update()
     Rect clickedRect(0, 326, Window::Width(), 140);
 
     if (clickedRect.leftClicked()) {
-        mIsSpeech = true;
+        if (script().textToSpeech()) {
+            mIsSpeech = true;
+        }
 
         if (mTextIndex < static_cast<int>(scene().texts().count()) - 1) {
             mTextIndex++;

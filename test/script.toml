@@ -1,3 +1,6 @@
+[Setting]
+textToSpeech = true
+
 [[Actor]]
 name = "ken"
 emoji = "🙂"

@@ -12,6 +12,8 @@ class Script
 public:
     Script(const FilePath& aPath);
 
+    bool textToSpeech() const { return mTextToSpeech; }
+
     const Font& font() const { return mFont; }
     const Font& fontS() const { return mFontS; }
 
@@ -24,6 +26,7 @@ public:
 
 private:
     TOMLReader mReader;
+    bool mTextToSpeech;
     const Font mFont;
     const Font mFontS;
     Array<Actor> mActors;
