@@ -24,14 +24,14 @@ void Player::update()
     if (scene().hasTexture()) {
         scene().texture().drawAt(
             Window::Width() / 2,
-            (Window::Height() - 140) / 2
+            (Window::Height() - 154) / 2
             );
     }
 
     if (scene().hasTitle()) {
         script().font()(scene().title()).drawAt(
             Window::Width() / 2,
-            (Window::Height() - 140) / 2,
+            (Window::Height() - 154) / 2,
             Palette::White
             );
     }
