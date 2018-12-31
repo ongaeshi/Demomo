@@ -26,6 +26,7 @@ private:
     const Actor* mActorLeft;
     const Actor* mActorRight;
     bool mIsSpeech;
+    int mIsWaitSpeechEnd;
 };
 
 }

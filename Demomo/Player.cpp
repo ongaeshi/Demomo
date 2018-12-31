@@ -9,6 +9,7 @@ Player::Player(const FilePath& aPath)
 , mActorLeft(&script().actor(scene().initLeft()))
 , mActorRight(&script().actor(scene().initRight()))
 , mIsSpeech(false)
+, mIsWaitSpeechEnd(-1)
 {
     Window::Resize(854, 480);
     Graphics::SetBackground(scene().backgroundColor());
@@ -39,7 +40,14 @@ void Player::update()
 
     Rect clickedRect(0, 326, Window::Width(), 140);
 
-    if (clickedRect.leftClicked()) {
+    if (mIsWaitSpeechEnd > 0) {
+        --mIsWaitSpeechEnd;
+    }
+
+    if (mIsWaitSpeechEnd == 0 && !TextToSpeech::IsSpeaking() ||
+        clickedRect.leftClicked()) {
+        mIsWaitSpeechEnd = -1;
+
         if (script().textToSpeech()) {
             mIsSpeech = true;
         }
@@ -79,6 +87,7 @@ void Player::update()
             if (mIsSpeech) {
                 TextToSpeech::Speak(text.text());
                 mIsSpeech = false;
+                mIsWaitSpeechEnd = 30;
             }
 
         } else {
@@ -91,6 +100,7 @@ void Player::update()
             if (mIsSpeech) {
                 TextToSpeech::Speak(text.text());
                 mIsSpeech = false;
+                mIsWaitSpeechEnd = 30;
             }
         }
     }
