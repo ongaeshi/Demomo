@@ -48,16 +48,21 @@ void Player::update()
         clickedRect.leftClicked()) {
         mIsWaitSpeechEnd = -1;
 
-        if (script().textToSpeech()) {
-            mIsSpeech = true;
-        }
-
         if (mTextIndex < static_cast<int>(scene().texts().count()) - 1) {
             mTextIndex++;
+
+            if (script().textToSpeech()) {
+                mIsSpeech = true;
+            }
+
         } else {
             if (mSceneIndex < static_cast<int>(script().scenes().count()) - 1) {
                 mSceneIndex++;
                 mTextIndex = 0;
+
+                if (script().textToSpeech()) {
+                    mIsSpeech = true;
+                }
 
                 if (scene().hasInitLeft()) {
                     mActorLeft = &script().actor(scene().initLeft());
