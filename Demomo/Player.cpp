@@ -92,7 +92,9 @@ void Player::update()
             if (mIsSpeech) {
                 TextToSpeech::Speak(text.text());
                 mIsSpeech = false;
-                mIsWaitSpeechEnd = 30;
+                if (script().setting().autoPlay()) {
+                    mIsWaitSpeechEnd = 30;
+                }
             }
 
         } else {
@@ -105,7 +107,9 @@ void Player::update()
             if (mIsSpeech) {
                 TextToSpeech::Speak(text.text());
                 mIsSpeech = false;
-                mIsWaitSpeechEnd = 30;
+                if (script().setting().autoPlay()) {
+                    mIsWaitSpeechEnd = 30;
+                }
             }
         }
     }
