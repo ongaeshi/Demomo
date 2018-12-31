@@ -83,21 +83,21 @@ actor = "sum"
 text = "グラフィックの表示、音の再生、マウスやキーボードと連携したプログラムをとても簡単に書くことができるんだ。例えば・・"
 
 [[Scene]]
-title = "図形を描く"
+image = "../../test/circle.png"
 
 [[Scene.Text]]
 actor = "sum"
 text = "図形を書く"
 
 [[Scene]]
-title = "複雑な図形を描く"
+image = "../../test/drawframe.png"
 
 [[Scene.Text]]
 actor = "sum"
 text = "複雑な図形を描く"
 
 [[Scene]]
-title = "絵文字を書く"
+image = "../../test/emoji.png"
 
 [[Scene.Text]]
 actor = "sum"
@@ -111,7 +111,7 @@ actor = "sum"
 text = "テクスチャを書く"
 
 [[Scene]]
-title = "文字を書く"
+image = "../../test/text.png"
 
 [[Scene.Text]]
 actor = "sum"
