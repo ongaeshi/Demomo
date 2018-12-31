@@ -15,7 +15,11 @@ class Scene
 public:
     Scene(const Script& aScript, const TOMLValue& aDesc);
 
+    bool hasTitle() const { return hasMember(U"title"); }
     String title() const { return mDesc[U"title"].getString(); }
+
+    bool hasTexture() const { return hasMember(U"image"); }
+    const Texture& texture() const { return mTexture; }
 
     bool hasInitLeft() const { return hasMember(U"initLeft"); }
     String initLeft() const { return mDesc[U"initLeft"].getString(); }
@@ -24,8 +28,6 @@ public:
     String initRight() const { return mDesc[U"initRight"].getString(); }
 
     ColorF backgroundColor() const;
-
-    const Texture& texture() const { return mTexture; }
 
     const Array<Text>& texts() const { return mTexts; }
 

@@ -4,10 +4,13 @@ namespace demomo {
 //-----------------------------------------------------------------------------
 Scene::Scene(const Script& aScript, const TOMLValue& aDesc)
 : mDesc(aDesc)
-, mTexture(U"../../test/windmill.png")
 {
     for (const auto& text : aDesc[U"Text"].tableArrayView()) {
         mTexts << Text(aScript, text);
+    }
+
+    if (hasTexture()) {
+        mTexture = Texture(aDesc[U"image"].getString());
     }
 }
 
