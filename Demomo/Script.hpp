@@ -17,6 +17,7 @@ public:
 
     const Font& font() const { return mFont; }
     const Font& fontS() const { return mFontS; }
+    const Color fontColor() const { return Palette::White; }
 
     const Actor& actor(int aIndex) const { return mActors[aIndex]; }
     const Actor& actor(const String& aName) const { return mActors[actorIndex(aName)]; }
