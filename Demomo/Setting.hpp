@@ -10,6 +10,7 @@ class Setting
 public:
     Setting(const TOMLValue& aDesc);
 
+    Color fontColor() const;
     Color backgroundColor() const;
 
     bool textToSpeech() const { return mDesc[U"textToSpeech"].get<bool>(); }

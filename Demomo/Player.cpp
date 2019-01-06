@@ -35,7 +35,7 @@ void Player::update()
         script().font()(scene().title()).drawAt(
             Window::Width() / 2,
             (Window::Height() - 154) / 2,
-            script().fontColor()
+            script().setting().fontColor()
             );
     }
 
@@ -85,8 +85,8 @@ void Player::update()
 
         if (text.actor().isLeft()) {
             Rect rect(160, 326, 564, 134);
-            Shape2D::RectBalloon(rect, Vec2(110, Window::Height() - 90)).drawFrame(2, script().fontColor());
-            script().fontS()(text.text()).draw(rect.stretched(-6), script().fontColor());
+            Shape2D::RectBalloon(rect, Vec2(110, Window::Height() - 90)).drawFrame(2, script().setting().fontColor());
+            script().fontS()(text.text()).draw(rect.stretched(-6), script().setting().fontColor());
 
             mActorLeft = &text.actor();
 
@@ -94,8 +94,8 @@ void Player::update()
 
         } else {
             Rect rect(130, 326, 564, 134);
-            Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110, Window::Height() - 90)).drawFrame(2, script().fontColor());
-            script().fontS()(text.text()).draw(rect.stretched(-6), script().fontColor());
+            Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110, Window::Height() - 90)).drawFrame(2, script().setting().fontColor());
+            script().fontS()(text.text()).draw(rect.stretched(-6), script().setting().fontColor());
 
             mActorRight = &text.actor();
 

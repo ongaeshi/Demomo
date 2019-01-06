@@ -8,6 +8,16 @@ Setting::Setting(const TOMLValue& aDesc)
 }
 
 //-----------------------------------------------------------------------------
+Color Setting::fontColor() const
+{
+    if (hasMember(U"fontColor")) {
+        return mDesc[U"fontColor"].get<Color>();
+    } else {
+        return Palette::White;
+    }
+}
+
+//-----------------------------------------------------------------------------
 Color Setting::backgroundColor() const
 {
     if (hasMember(U"backgroundColor")) {
