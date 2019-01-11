@@ -59,7 +59,12 @@ void Player::update()
         } else {
             if (mSceneIndex < static_cast<int>(script().scenes().count()) - 1) {
                 mSceneIndex++;
-                mTextIndex = 0;
+
+                if (scene().texts().count() > 0) {
+                    mTextIndex = 0;
+                } else {
+                    mTextIndex = -1;
+                }
 
                 if (script().setting().textToSpeech()) {
                     mIsSpeech = true;
