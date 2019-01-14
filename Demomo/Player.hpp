@@ -25,8 +25,8 @@ private:
     Script* mScript;
     int mSceneIndex;
     int mTextIndex;
-    const Actor* mActorLeft;
-    const Actor* mActorRight;
+    String mActorLeft;
+    String mActorRight;
     bool mIsSpeech;
     int mIsWaitSpeechEnd;
 };

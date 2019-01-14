@@ -6,8 +6,8 @@ Player::Player(const FilePath& aPath)
 : mScript(new Script(aPath))
 , mSceneIndex(0)
 , mTextIndex(-1)
-, mActorLeft(&script().actor(scene().initLeft()))
-, mActorRight(&script().actor(scene().initRight()))
+, mActorLeft(scene().initLeft())
+, mActorRight(scene().initRight())
 , mIsSpeech(false)
 , mIsWaitSpeechEnd(-1)
 {
@@ -76,11 +76,11 @@ void Player::update()
                 }
 
                 if (scene().hasInitLeft()) {
-                    mActorLeft = &script().actor(scene().initLeft());
+                    mActorLeft = scene().initLeft();
                 }
 
                 if (scene().hasInitRight()) {
-                    mActorRight = &script().actor(scene().initRight());
+                    mActorRight = scene().initRight();
                 }
             }
         }
@@ -98,7 +98,7 @@ void Player::update()
             Shape2D::RectBalloon(rect, Vec2(110, Window::Height() - 90)).drawFrame(2, script().setting().fontColor());
             script().fontS()(text.text()).draw(rect.stretched(-6), script().setting().fontColor());
 
-            mActorLeft = &text.actor();
+            mActorLeft = text.actor().name();
 
             speech(text);
 
@@ -107,14 +107,14 @@ void Player::update()
             Shape2D::RectBalloon(rect, Vec2(Window::Width() - 110, Window::Height() - 90)).drawFrame(2, script().setting().fontColor());
             script().fontS()(text.text()).draw(rect.stretched(-6), script().setting().fontColor());
 
-            mActorRight = &text.actor();
+            mActorRight = text.actor().name();
 
             speech(text);
         }
     }
 
-    mActorLeft->texture().resized(120).drawAt(70, Window::Height() - 70);
-    mActorRight->texture().resized(120).drawAt(Window::Width() - 70, Window::Height() - 70);
+    script().actor(mActorLeft).texture().resized(120).drawAt(70, Window::Height() - 70);
+    script().actor(mActorRight).texture().resized(120).drawAt(Window::Width() - 70, Window::Height() - 70);
 }
 
 //-----------------------------------------------------------------------------
