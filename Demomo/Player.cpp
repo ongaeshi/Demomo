@@ -3,7 +3,7 @@
 namespace demomo {
 //-----------------------------------------------------------------------------
 Player::Player(const FilePath& aPath)
-: mScript(aPath)
+: mScript(new Script(aPath))
 , mSceneIndex(0)
 , mTextIndex(-1)
 , mActorLeft(&script().actor(scene().initLeft()))
@@ -19,8 +19,10 @@ Player::Player(const FilePath& aPath)
 //-----------------------------------------------------------------------------
 void Player::tryReload()
 {
-    if (mScript.hasChanged()) {
-        Print(U"Changed!!");
+    if (script().hasChanged()) {
+        auto* old = mScript;
+        mScript = new Script(script().path());
+        delete old;
     }
 }
 

@@ -12,7 +12,7 @@ class Player
 public:
     Player(const FilePath& aPath);
 
-    Script& script() { return mScript; }
+    Script& script() const { return *mScript; }
 
     void tryReload();
     void update();
@@ -20,9 +20,9 @@ public:
     void speech(const Text& aText);
 
 private:
-    Scene& scene() { return mScript.scene(mSceneIndex); }
+    Scene& scene() const { return script().scene(mSceneIndex); }
 
-    Script mScript;
+    Script* mScript;
     int mSceneIndex;
     int mTextIndex;
     const Actor* mActorLeft;

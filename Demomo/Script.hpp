@@ -13,6 +13,7 @@ class Script
 public:
     Script(const FilePath& aPath);
 
+    const FilePath& path() const { return mPath; }
     bool hasChanged() const;
 
     const Setting& setting() const { return mSetting; }
@@ -28,6 +29,7 @@ public:
     Scene& scene(int aIndex) { return mScenes[aIndex]; }
 
 private:
+    FilePath mPath;
     DirectoryWatcher mDirectoryWatcher;
     TOMLReader mReader;
     Setting mSetting;

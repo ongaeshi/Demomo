@@ -4,8 +4,9 @@ namespace demomo {
 
 //-----------------------------------------------------------------------------
 Script::Script(const FilePath& aPath)
-: mDirectoryWatcher(FileSystem::ParentPath(aPath))
-, mReader(aPath)
+: mPath(aPath)
+, mDirectoryWatcher(FileSystem::ParentPath(mPath))
+, mReader(mPath)
 , mSetting(mReader[U"Setting"])
 , mFont(60)
 , mFontS(20)
