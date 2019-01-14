@@ -14,6 +14,7 @@ public:
     Script(const FilePath& aPath);
 
     const FilePath& path() const { return mPath; }
+    bool isOpened() const { return mReader.isOpened(); }
     bool hasChanged() const;
 
     const Setting& setting() const { return mSetting; }

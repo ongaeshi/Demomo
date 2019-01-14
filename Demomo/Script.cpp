@@ -11,6 +11,11 @@ Script::Script(const FilePath& aPath)
 , mFont(60)
 , mFontS(20)
 {
+    // Illegal TOML?
+    if (!isOpened()) {
+        return;
+    }
+
     for (const auto& actor : mReader[U"Actor"].tableArrayView()) {
         mActors << Actor(actor);
         mActorHash.emplace(actor[U"name"].getString(), mActors.count() - 1);

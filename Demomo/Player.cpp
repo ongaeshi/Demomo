@@ -26,8 +26,15 @@ void Player::reset()
 void Player::tryReload()
 {
     if (script().hasChanged()) {
-        mScript.reset(new Script(script().path()));
-        reset();
+        auto* ptr = new Script(script().path());
+
+        if (ptr->isOpened()) {
+            mScript.reset(ptr);
+            reset();
+        } else {
+            delete ptr;
+            Print(U"Reload failed.");
+        }
     }
 }
 
