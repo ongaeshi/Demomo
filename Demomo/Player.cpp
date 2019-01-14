@@ -20,9 +20,7 @@ Player::Player(const FilePath& aPath)
 void Player::tryReload()
 {
     if (script().hasChanged()) {
-        auto* old = mScript;
-        mScript = new Script(script().path());
-        delete old;
+        mScript.reset(new Script(script().path()));
     }
 }
 

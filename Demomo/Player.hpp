@@ -22,7 +22,7 @@ public:
 private:
     Scene& scene() const { return script().scene(mSceneIndex); }
 
-    Script* mScript;
+    std::unique_ptr<Script> mScript;
     int mSceneIndex;
     int mTextIndex;
     String mActorLeft;
