@@ -35,11 +35,12 @@ void Player::tryReload()
         auto* ptr = new Script(script().path());
 
         if (ptr->isOpened()) {
+            ClearPrint();
             mScript.reset(ptr);
             reset();
         } else {
-            delete ptr;
             Print(U"Reload failed.");
+            delete ptr;
         }
     }
 }
