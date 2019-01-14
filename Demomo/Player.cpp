@@ -11,6 +11,12 @@ Player::Player(const FilePath& aPath)
 , mIsSpeech(false)
 , mIsWaitSpeechEnd(-1)
 {
+    reset();
+}
+
+//-----------------------------------------------------------------------------
+void Player::reset()
+{
     Window::Resize(854, 480);
     Graphics::SetBackground(script().setting().backgroundColor());
     TextToSpeech::SetSpeed(script().setting().speechSpeed());
@@ -21,6 +27,7 @@ void Player::tryReload()
 {
     if (script().hasChanged()) {
         mScript.reset(new Script(script().path()));
+        reset();
     }
 }
 

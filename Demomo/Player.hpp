@@ -17,10 +17,12 @@ public:
     void tryReload();
     void update();
 
-    void speech(const Text& aText);
 
 private:
     Scene& scene() const { return script().scene(mSceneIndex); }
+
+    void speech(const Text& aText);
+    void reset();
 
     std::unique_ptr<Script> mScript;
     int mSceneIndex;
