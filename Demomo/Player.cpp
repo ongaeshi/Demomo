@@ -6,12 +6,18 @@ Player::Player(const FilePath& aPath)
 : mScript(new Script(aPath))
 , mSceneIndex(0)
 , mTextIndex(-1)
-, mActorLeft(scene().initLeft())
-, mActorRight(scene().initRight())
 , mIsSpeech(false)
 , mIsWaitSpeechEnd(-1)
 {
+    if (!script().isOpened()) {
+        Print(U"Load failed.");
+        return;
+    }
+
     reset();
+
+    mActorLeft = scene().initLeft();
+    mActorRight = scene().initRight();
 }
 
 //-----------------------------------------------------------------------------
@@ -41,6 +47,10 @@ void Player::tryReload()
 //-----------------------------------------------------------------------------
 void Player::update()
 {
+    if (!script().isOpened()) {
+        return;
+    }
+
     if (scene().hasTexture()) {
         scene().texture().drawAt(
             Window::Width() / 2,
