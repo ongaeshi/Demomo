@@ -13,6 +13,8 @@ class Script
 public:
     Script(const FilePath& aPath);
 
+    bool hasChanged() const;
+
     const Setting& setting() const { return mSetting; }
 
     const Font& font() const { return mFont; }
@@ -26,6 +28,7 @@ public:
     Scene& scene(int aIndex) { return mScenes[aIndex]; }
 
 private:
+    DirectoryWatcher mDirectoryWatcher;
     TOMLReader mReader;
     Setting mSetting;
     const Font mFont;

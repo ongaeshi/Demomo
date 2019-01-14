@@ -4,7 +4,8 @@ namespace demomo {
 
 //-----------------------------------------------------------------------------
 Script::Script(const FilePath& aPath)
-: mReader(aPath)
+: mDirectoryWatcher(FileSystem::ParentPath(aPath))
+, mReader(aPath)
 , mSetting(mReader[U"Setting"])
 , mFont(60)
 , mFontS(20)
@@ -17,6 +18,15 @@ Script::Script(const FilePath& aPath)
     for (const auto& scene : mReader[U"Scene"].tableArrayView()) {
         mScenes << Scene(*this, scene);
     }
+}
+
+//-----------------------------------------------------------------------------
+bool Script::hasChanged() const
+{
+    auto changes = mDirectoryWatcher.retrieveChanges();
+
+    // TODO: Check relative files only.
+    return changes.count() > 0;
 }
 
 }
