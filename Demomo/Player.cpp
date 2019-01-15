@@ -45,6 +45,18 @@ void Player::setTextIndexToLast()
 }
 
 //-----------------------------------------------------------------------------
+bool Player::nextTrigger(const Rect& aRect) const
+{
+    return aRect.leftClicked();
+}
+
+//-----------------------------------------------------------------------------
+bool Player::prevTrigger(const Rect& aRect) const
+{
+    return aRect.rightClicked();
+}
+
+//-----------------------------------------------------------------------------
 void Player::tryReload()
 {
     if (script().hasChanged()) {
@@ -101,7 +113,7 @@ void Player::update()
     }
 
     if (mIsWaitSpeechEnd == 0 && !TextToSpeech::IsSpeaking() ||
-        clickedRect.leftClicked()) {
+        nextTrigger(clickedRect)) {
         mIsWaitSpeechEnd = -1;
 
         if (mTextIndex < static_cast<int>(scene().texts().count()) - 1) {
@@ -129,7 +141,7 @@ void Player::update()
                 }
             }
         }
-    } else if (clickedRect.rightClicked()) {
+    } else if (prevTrigger(clickedRect)) {
         if (mTextIndex > 0) { // Can't go back to -1
             mTextIndex--;
         } else if (mSceneIndex > 0) {

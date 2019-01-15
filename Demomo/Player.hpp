@@ -27,6 +27,9 @@ private:
     void setTextIndexToFirst();
     void setTextIndexToLast();
 
+    bool nextTrigger(const Rect& aRect) const;
+    bool prevTrigger(const Rect& aRect) const;
+
     std::unique_ptr<Script> mScript;
     int mSceneIndex;
     int mTextIndex;
