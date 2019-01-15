@@ -110,6 +110,9 @@ void Player::update()
     } else if (clickedRect.rightClicked()) {
         if (mTextIndex > 0) { // Can't go back to -1
             mTextIndex--;
+        } else if (mSceneIndex > 0) {
+            mSceneIndex--;
+            mTextIndex = scene().texts().count() - 1; // MEMO: -1 is a correct value
         }
     }
 
