@@ -106,7 +106,8 @@ void Player::update()
             );
     }
 
-    Rect clickedRect(0, 326, Window::Width(), 140);
+    Rect clickedRect(0, 0, Window::Width(), Window::Height());
+    // Rect clickedRect(0, 326, Window::Width(), 140);
 
     if (mIsWaitSpeechEnd > 0) {
         --mIsWaitSpeechEnd;
