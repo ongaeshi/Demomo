@@ -47,13 +47,13 @@ void Player::setTextIndexToLast()
 //-----------------------------------------------------------------------------
 bool Player::nextTrigger(const Rect& aRect) const
 {
-    return aRect.leftClicked();
+    return aRect.leftClicked() || KeyRight.down() || KeySpace.down();
 }
 
 //-----------------------------------------------------------------------------
 bool Player::prevTrigger(const Rect& aRect) const
 {
-    return aRect.rightClicked();
+    return aRect.rightClicked() || KeyLeft.down();
 }
 
 //-----------------------------------------------------------------------------
