@@ -29,6 +29,22 @@ void Player::reset()
 }
 
 //-----------------------------------------------------------------------------
+void Player::setTextIndexToFirst()
+{
+    if (scene().texts().count() > 0) {
+        mTextIndex = 0;
+    } else {
+        mTextIndex = -1;
+    }
+}
+
+//-----------------------------------------------------------------------------
+void Player::setTextIndexToLast()
+{
+    mTextIndex = static_cast<int>(scene().texts().count()) - 1; // MEMO: -1 is a correct value
+}
+
+//-----------------------------------------------------------------------------
 void Player::tryReload()
 {
     if (script().hasChanged()) {
@@ -38,6 +54,17 @@ void Player::tryReload()
             ClearPrint();
             mScript.reset(ptr);
             reset();
+
+            if (mSceneIndex > static_cast<int>(script().scenes().count()) - 1) {
+                mSceneIndex = script().scenes().count() - 1;
+                setTextIndexToFirst();
+            } else {
+                if (mTextIndex > static_cast<int>(scene().texts().count()) - 1) {
+                   setTextIndexToLast();
+                }
+            }
+
+            
         } else {
             Print(U"Reload failed.");
             delete ptr;
@@ -87,12 +114,7 @@ void Player::update()
         } else {
             if (mSceneIndex < static_cast<int>(script().scenes().count()) - 1) {
                 mSceneIndex++;
-
-                if (scene().texts().count() > 0) {
-                    mTextIndex = 0;
-                } else {
-                    mTextIndex = -1;
-                }
+                setTextIndexToFirst();
 
                 if (script().setting().textToSpeech()) {
                     mIsSpeech = true;
@@ -112,7 +134,7 @@ void Player::update()
             mTextIndex--;
         } else if (mSceneIndex > 0) {
             mSceneIndex--;
-            mTextIndex = scene().texts().count() - 1; // MEMO: -1 is a correct value
+            setTextIndexToLast();
         }
     }
 

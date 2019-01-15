@@ -24,6 +24,9 @@ private:
     void speech(const Text& aText);
     void reset();
 
+    void setTextIndexToFirst();
+    void setTextIndexToLast();
+
     std::unique_ptr<Script> mScript;
     int mSceneIndex;
     int mTextIndex;
